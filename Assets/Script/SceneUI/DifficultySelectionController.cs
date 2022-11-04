@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 using UnityEngine.UIElements;
-using UnityEngine.SceneManagement;
+using Gege;
 
 public class DifficultySelectionController : MonoBehaviour
 {
@@ -27,11 +27,11 @@ public class DifficultySelectionController : MonoBehaviour
     void LoadScene (Difficulty difficulty)
     {
         GameInitializationParameter.Difficulty = difficulty;
-        SceneManager.LoadScene("GameScene",LoadSceneMode.Single);
+        SceneManagement.LoadSceneWithTransition("GameScene");
     }
     void ExecuteBack()
     {
-        SceneManager.LoadScene("StartScene",LoadSceneMode.Single);
+        SceneManagement.LoadSceneWithTransition("StartScene");
     }
 }
 public enum Difficulty{

@@ -1,8 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
+using Gege;
 
 public class StartSceneButtonController : MonoBehaviour
 {
@@ -18,7 +18,7 @@ public class StartSceneButtonController : MonoBehaviour
     }
     void ExecuteStart()
     {
-        SceneManager.LoadScene("DifficultySelectionScene",LoadSceneMode.Single);
+        SceneManagement.LoadSceneWithTransition("DifficultySelectionScene");
     }
     void ExecuteExit()
     {

@@ -2,8 +2,8 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
+using Gege;
 
 public class GameSceneButtonController : MonoBehaviour
 {
@@ -85,7 +85,6 @@ public class GameSceneButtonController : MonoBehaviour
             return;
         }
         BGWidth = HealthBarBG.resolvedStyle.width;
-        Debug.Log("Background Width = " + BGWidth);
         if (Health <= 0f)
         {
             ExecuteGameOver();
@@ -93,7 +92,6 @@ public class GameSceneButtonController : MonoBehaviour
         }
         Health -= Time.deltaTime * DecayFactor;
         HealthBar.style.width = new(BGWidth - (BGWidth * Health / 100));
-        Debug.Log("HealthBar Width = " + HealthBar.resolvedStyle.width);
     }
     void ExecuteRestart()
     {
@@ -103,7 +101,7 @@ public class GameSceneButtonController : MonoBehaviour
     }
     void ExecuteExit()
     {
-        SceneManager.LoadScene("StartScene");
+        SceneManagement.LoadSceneWithTransition("StartScene");
     }
     void OnDestroy()
     {
